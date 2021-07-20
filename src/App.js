@@ -8,6 +8,8 @@ import Private from './pages/Private';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import { withAuth } from './providers/AuthProvider';
+import Home from './home/Home';
+
 
 class App extends Component {
 	render() {
@@ -15,10 +17,10 @@ class App extends Component {
 		if (isLoading) {
 			return <div>loading ... </div>;
 		}
-		return (
-			<div className="container">
-				<h1>Basic React Authentication</h1>
-				<Navbar />
+		return(
+			<div className="home">
+				<Navbar/>
+				<Home/>
 				<Switch>
 					<AnonRoute path="/signup" component={Signup} />
 					<AnonRoute path="/login" component={Login} />
