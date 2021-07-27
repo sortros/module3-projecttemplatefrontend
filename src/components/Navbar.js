@@ -30,17 +30,14 @@ const Navbar = () => {
 	return (
 		<div className="navbar">
 			<div className="container">
-				<div className="left">
-					<img 
-					src="https://1000marcas.net/wp-content/uploads/2020/01/Netflix-simbolo-600x338.jpg" 
-					alt="" />
-					<p>Homepage</p>
-					<p>Series</p>
-					<p>Movies</p>
+				<div className="navLeft">
+					<div className="navLogo"> <img className="navImgLogo" src="https://1000marcas.net/wp-content/uploads/2020/01/Netflix-simbolo.jpg" alt="" /></div>
+					<div className="navHome">   <p>Homepage</p> </div>
+					<div className="navSeries"> <p>Series</p> </div>
+					<div className="navMovies"> <p>Movies</p> </div>
 				</div>
-				<div className="right"></div>
+				<div className="navRight"></div>
 			</div>
-			
 		</div>
 	)
 }
