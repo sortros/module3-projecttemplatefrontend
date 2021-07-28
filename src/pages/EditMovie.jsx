@@ -17,9 +17,9 @@ class EditMovie extends Component {
 
     componentDidMount = async() => {
       const { movieId } = this.props.match.params;
+      console.log(this.props)
       try {
         const movie = await movieClient.getSingleMovie(movieId);
-        console.log(movie)
         this.setState({
           title: movie.title,
           director: movie.director,
@@ -46,7 +46,6 @@ class EditMovie extends Component {
     const genre = stringGenre.split(',');
     try {
       const movie = await movieClient.editMovie(movieId, { title, director, year, duration, score, genre, imgUrl });
-      console.log('Edited movie', movie);
       this.props.history.push(`/movies/${movie._id}`);
     } catch(e){
       console.log(e);

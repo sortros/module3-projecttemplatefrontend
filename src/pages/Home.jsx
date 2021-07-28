@@ -26,7 +26,7 @@ import './Home.css';
      return (
        <div>
          {this.state.movies.map(movie => {
-           return <MovieCard key={movie._id} movie={movie}/>
+           return <MovieCard key={movie._id} movie={movie} />
          })}
        </div>
      );

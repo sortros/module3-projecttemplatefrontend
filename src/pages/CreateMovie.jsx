@@ -16,8 +16,8 @@ class CreateMovie extends Component {
     }
 
     handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+      const { name, value } = event.target;
+      this.setState({ [name]: value });
     };
 
     handleSubmit = async (event) => {
@@ -26,7 +26,6 @@ class CreateMovie extends Component {
     const genre = stringGenre.split(',');
     try {
       const movie = await movieClient.createMovie({ title, director, year, duration, score, genre, imgUrl });
-      console.log('Created movie', movie);
       this.props.history.push(`/movies/${movie._id}`);
     } catch(e){
       console.log(e);
