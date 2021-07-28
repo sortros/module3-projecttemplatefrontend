@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import movieClient from '../lib/movieClient';
+import MovieCard from '../components/MovieCard';
 import './Home.css';
  
  class Home extends Component {
@@ -25,8 +26,7 @@ import './Home.css';
      return (
        <div>
          {this.state.movies.map(movie => {
-           return <p key={movie._id}>{movie.title}</p>
-          //  return <MovieCard movie={movie}/>
+           return <MovieCard key={movie._id} movie={movie}/>
          })}
        </div>
      );

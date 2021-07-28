@@ -6,18 +6,24 @@ class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: "",
+      email: "",
       password: ""
     };
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password } = this.state;
-    this.props.login({
-      username, 
-      password
-    })
+    const { email, password } = this.state;
+    try {
+      this.props.login({
+        email, 
+        password
+      })
+    } catch(e){
+      console.log(e);
+    } finally {
+      this.props.history.push('/home');
+    }
   };
 
   handleChange = event => {
@@ -26,14 +32,14 @@ class Login extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     return (
       <form onSubmit={this.handleFormSubmit}>
-        <label>Username:</label>
+        <label>Email:</label>
         <input
-          type="text"
-          name="username"
-          value={username}
+          type="email"
+          name="email"
+          value={email}
           onChange={this.handleChange}
         />
         <label>Password:</label>

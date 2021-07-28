@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
-import Private from './pages/Private';
+// import Private from './pages/Private';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import { withAuth } from './providers/AuthProvider';
-import Home from './home/Home';
-
+import Home from './pages/Home';
+import FavouriteMovies from './pages/FavouriteMovies';
+import WatchLaterMovies from './pages/WatchLaterMovies';
+import SingleMovie from './pages/SingleMovie';
+import CreateMovie from './pages/CreateMovie';
+import EditMovie from './pages/EditMovie';
 
 class App extends Component {
 	render() {
@@ -20,12 +24,15 @@ class App extends Component {
 		return(
 			<div className="home">
 				<Navbar/>
-				<Home/>
 				<Switch>
-					<AnonRoute path="/signup" component={Signup} />
-					<AnonRoute path="/login" component={Login} />
-					<AnonRoute path="/" component={Home} />
-					<PrivateRoute path="/private" component={Private} />
+					<AnonRoute exact path="/signup" component={Signup} />
+					<Route exact path="/home" component={Home} />
+					<PrivateRoute exact path="/favourite" component={FavouriteMovies} />
+					<PrivateRoute exact path="/watch-later" component={WatchLaterMovies} />
+					<PrivateRoute exact path="/new" component={CreateMovie} />
+					<PrivateRoute exact path="/movies/:movieId" component={SingleMovie} />
+					<PrivateRoute exact path="/edit/:movieId" component={EditMovie} />
+					<AnonRoute exact path="/login" component={Login} />
 				</Switch>
 			</div>
 		);

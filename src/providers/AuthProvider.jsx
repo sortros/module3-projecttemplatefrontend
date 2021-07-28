@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import apiClient from "../lib/apiClient";
-
+import movieClient from "../lib/movieClient";
 const { Consumer, Provider } = React.createContext();
 
 export const withAuth = (Comp) => {
@@ -17,6 +17,8 @@ export const withAuth = (Comp) => {
               logout={authProvider.logout}
               login={authProvider.login} 
               signup={authProvider.signup} 
+              addMovieToFavourites={authProvider.addMovieToFavourites}
+              addMovieToWatchLater={authProvider.addMovieToWatchLater}
               {...this.props}
             />
           )}
@@ -52,14 +54,14 @@ class AuthProvider extends Component {
     }
   }
 
-  login = async ({ username, password }) => {
+  login = async ({ email, password }) => {
 
     try {
       this.setState({
         status: 'loading',
         user: null,
       })
-      const user = await apiClient.login({ username, password })
+      const user = await apiClient.login({ email, password })
       this.setState({
         status: 'loggedIn',
         user,
@@ -106,6 +108,28 @@ class AuthProvider extends Component {
     }
   }
 
+  addMovieToFavourites = async(id) => {
+    try {
+      const user = await movieClient.addMovieToFavourites(id);
+      this.setState({
+        user
+      })
+    } catch(e){
+      console.log(e)
+    }
+  }
+
+    addMovieToWatchLater = async(id) => {
+    try {
+      const user = await movieClient.addMovieToWatchLater(id);
+      this.setState({
+        user
+      })
+    } catch(e){
+      console.log(e)
+    }
+  }
+
   render() {
     const { user, status } = this.state;
      
@@ -117,7 +141,9 @@ class AuthProvider extends Component {
           user,
           login: this.login, 
           signup: this.signup,
-          logout: this.logout }}>
+          logout: this.logout,
+          addMovieToFavourites: this.addMovieToFavourites,
+          addMovieToWatchLater: this.addMovieToWatchLater }}>
         {this.props.children}
       </Provider>
     )
