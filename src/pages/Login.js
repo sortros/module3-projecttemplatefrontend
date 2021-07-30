@@ -35,7 +35,7 @@ class Login extends Component {
     const { email, password } = this.state;
     return (
       <form onSubmit={this.handleFormSubmit}>
-        <label>Email:</label>
+        <label className="email">Email:</label>
         <input
           type="email"
           name="email"
