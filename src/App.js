@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
@@ -26,7 +26,7 @@ class App extends Component {
 				<Navbar/>
 				<Switch>
 					<AnonRoute exact path="/signup" component={Signup} />
-					<Route exact path="/home" component={Home} />
+					<PrivateRoute exact path="/home" component={Home} />
 					<PrivateRoute exact path="/favourite" component={FavouriteMovies} />
 					<PrivateRoute exact path="/watch-later" component={WatchLaterMovies} />
 					<PrivateRoute exact path="/new" component={CreateMovie} />
