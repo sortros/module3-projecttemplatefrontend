@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import movieClient from '../lib/movieClient';
 import MovieCard from '../components/MovieCard';
 import './Home.css';
@@ -24,11 +25,17 @@ import './Home.css';
 
    render() {
      return (
-       <div>
-         {this.state.movies.map(movie => {
-           return <MovieCard key={movie._id} movie={movie} />
-         })}
-       </div>
+       <main>
+          <Link to="/new"> 
+            <button className="button">Add new movie</button>
+          </Link>
+          <div>
+                {this.state.movies.map(movie => {
+              return <MovieCard key={movie._id} movie={movie} />
+            })}
+
+          </div>
+       </main>
      );
    }
  }

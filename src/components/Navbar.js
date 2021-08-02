@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'
 import { withAuth } from '../providers/AuthProvider';
 
 class Navbar extends Component {
 	render() {
 		const { user, isLoggedIn, logout } = this.props;
 		return (
-			<div>
-				<div className="navLogo"> <img className="navImgLogo" src="https://1000marcas.net/wp-content/uploads/2020/01/Netflix-simbolo.jpg" alt="" /></div>
+			<nav>
+				<div className="navLogo">
+				  <Link to="/home">
+						<img className="navImgLogo" src="https://1000marcas.net/wp-content/uploads/2020/01/Netflix-simbolo.jpg" alt="" />
+					</Link>
+				</div>
 				{isLoggedIn ? (
-					<>
-						<p>Welcome {user.username}</p>
-						<Link to="/home">Home</Link>
-						<Link to="/new">Add new movie</Link>
-						<button onClick={logout}>Logout</button>
-					</>
+					<div className="navbar-content">
+							<p>Welcome {user.username}</p>
+							<button className="button" onClick={logout}>Logout</button>
+					</div>
+
 				) : (
-					<>
-						<Link to="/home">Home</Link>
+					<div className="navbar-content">
 						<Link to="/login">Login</Link>
-						<Link to="/signup">Signup</Link>
-					</>
+						<Link to="/signup">
+							<button className="button">Signup</button>
+						</Link>
+					</div>
 				)}
-			</div>
+			</nav>
 		);
 	}
 }

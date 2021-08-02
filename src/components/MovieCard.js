@@ -63,11 +63,13 @@ class MovieCard extends Component {
 
     render() {
       return (
-        <div>
+        <div className="card-container">
           <h2><Link to={`/movies/${this.props.movie._id}`}>{this.props.movie.title}</Link></h2>
           <img src={this.props.movie.imgUrl} alt={this.props.movie.title}/>
-          {this.state.favourites ? <p>Movie on favourites. Go to your <Link to={'/favourite'}>favourite movies list</Link></p> : <button onClick={this.addToFavourites}>Add to favourites</button>}
-          {this.state.watchLater ? <p>Movie on your watch later list. Go to your <Link to={'/watch-later'}>watch later list</Link></p> : <button onClick={this.addToWatchLater}>Watch later</button>}
+          <div className="card-links">
+            {this.state.favourites ? <p>Movie on favourites. Go to your <Link to={'/favourite'}>favourite movies list</Link></p> : <button className="button" onClick={this.addToFavourites}>Add to favourites</button>}
+            {this.state.watchLater ? <p>Movie on your watch later list. Go to your <Link to={'/watch-later'}>watch later list</Link></p> : <button className="button" onClick={this.addToWatchLater}>Watch later</button>}
+          </div>
         </div>
         )
       }
