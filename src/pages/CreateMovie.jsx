@@ -35,60 +35,60 @@ class CreateMovie extends Component {
   render() {
     const { title, director, year, duration, score, stringGenre, imgUrl } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-        <label>Title:</label>
+      <main>
+        <form className="form-container" onSubmit={this.handleSubmit}>
+        <label>Title</label>
         <input
           type="text"
           name="title"
           value={title}
           onChange={this.handleChange}
         />
-        <label>Director:</label>
+        <label>Director</label>
         <input
           type="text"
           name="director"
           value={director}
           onChange={this.handleChange}
         />
-        <label>Year:</label>
+        <label>Year</label>
         <input
           type="number"
           name="year"
           value={year}
           onChange={this.handleChange}
         />
-        <label>Duration:</label>
+        <label>Duration</label>
         <input
           type="text"
           name="duration"
           value={duration}
           onChange={this.handleChange}
         />
-        <label>Score:</label>
+        <label>Score</label>
         <input
           type="number"
           name="score"
           value={score}
           onChange={this.handleChange}
         />
-        <label>Genres (separated by commas):</label>
+        <label>Genres (separated by commas)</label>
         <input
           type="text"
           name="stringGenre"
           value={stringGenre}
           onChange={this.handleChange}
         />
-        <label>Image url:</label>
+        <label>Image url</label>
         <input
           type="text"
           name="imgUrl"
           value={imgUrl}
           onChange={this.handleChange}
         />
-        <input type="submit" value="Save movie" />
+        <input className="button-form" type="submit" value="Save movie" />
       </form>
-      </div>
+      </main>
     );
   }
 }

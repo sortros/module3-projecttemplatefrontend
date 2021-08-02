@@ -37,15 +37,19 @@ import { Link } from 'react-router-dom';
    render() {
      const { title, score, duration, director, imgUrl, year, _id } = this.state.movie;
      return (
-       <div>
+       <main>
          <img width="200px" src={imgUrl} alt={title}/>
-         <h1>Title: {title}</h1>
-         <p>Rated {score}</p>
-         <p>Duration: {duration}</p>
-         <p>Directed by {director} in {year}</p>
-         <Link to={`/edit/${_id}`}><button>Edit this movie</button></Link>
-         <button onClick={this.handleDelete}>Delete this movie</button>
+         <div className="singleMovie-details">
+            <h1>Title: {title}</h1>
+            <p>Rated {score}</p>
+            <p>Duration: {duration}</p>
+            <p>Directed by {director} in {year}</p>
+         </div>
+         <div className="card-links">
+          <Link to={`/edit/${_id}`}><button className="button">Edit this movie</button></Link>
+          <button className="button" onClick={this.handleDelete}>Delete this movie</button>
        </div>
+       </main>
      );
    }
  }

@@ -1,6 +1,8 @@
 body {
   margin: 0 auto;
   box-sizing: content-box;
+  background-color: black;
+  color: white;
 }
 
 button {
@@ -29,7 +31,7 @@ nav {
 }
 
 .navbar-content {
-  width: 40%;
+  width: 55%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -37,7 +39,7 @@ nav {
 .button {
   margin-left: 1em;
   padding: 0.5em 1em;
-
+  border-radius: 10px;
 }
 main {
   padding: 1em 2em;
@@ -46,19 +48,47 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+
 img {
   display: inline-block;
   object-fit: contain;
   width: 100%;
 }
+
 .card-container {
   width: 80%;
   padding: 1em;
   border: 1px solid lightgray;
   margin: 1em auto;
-  border-radius: 20px;
+  border-radius: 10px;
 }
+
 .card-links {
   display: flex;
   margin-top: 1em;
+}
+.form-container {
+  padding: 2em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form-container >* {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+input {
+  padding: 0.5em;
+
+}
+.button-form {
+  padding: 0.5em 1em;
+  background-color: #E50914;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.singleMovie-details {
+  text-align: left;
 }
